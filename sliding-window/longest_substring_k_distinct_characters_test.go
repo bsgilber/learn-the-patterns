@@ -52,6 +52,14 @@ func Test_lengthOfLongestSubstringKDistinct(t *testing.T) {
 			},
 			want: 5,
 		},
+		{
+			name: "test string with k=3, multiple chars repeat",
+			args: args{
+				s: "ccaabbb",
+				k: 2,
+			},
+			want: 5,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

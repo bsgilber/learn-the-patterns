@@ -17,11 +17,11 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	m := make(map[byte]int)
 
 	for i := range s {
-		m[s[i]] = i
+		m[s[i]] = m[s[i]] + 1
 
 		for {
 			if len(m) > k {
-				if m[s[left]] <= 1 {
+				if m[s[left]] == 1 {
 					delete(m, s[left])
 				} else {
 					m[s[left]] = m[s[left]] - 1
@@ -29,13 +29,14 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 
 				left = left + 1
 			} else {
+				if (i - left + 1) > best {
+					best = i - left + 1
+				}
+
 				break
 			}
 		}
 
-		if (i - left + 1) > best {
-			best = i - left + 1
-		}
 	}
 	return best
 }
