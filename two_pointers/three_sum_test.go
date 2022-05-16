@@ -42,6 +42,13 @@ func Test_threeSum(t *testing.T) {
 			},
 			want: [][]int{},
 		},
+		{
+			name: "make sure no duplicates",
+			args: args{
+				nums: []int{0, 0, 0, 0, 0},
+			},
+			want: [][]int{{0, 0, 0}},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
